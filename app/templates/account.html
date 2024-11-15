@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+аккаунт
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="width:400px">
+    <h1 class="mb-4 text-center">Изменить данные аккаунта</h1>
+    <form method="post" action="{{ url_for('account') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", size=32) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", size=32) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", size=32) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.confirm_password.label(class="form-label") }}
+            {{ form.confirm_password(class="form-control", size=32) }}
+        </div>
+
+        <div class="text-center">
+            {{ form.submit(class="btn btn-primary") }}
+            <button type="reset" class="btn btn-secondary">Очистить изменения</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
